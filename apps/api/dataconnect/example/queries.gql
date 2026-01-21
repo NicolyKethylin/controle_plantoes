@@ -1,0 +1,25 @@
+mutation CreateUser($displayName: String!, $email: String) @auth(level: USER) {
+  user_insert(data: {displayName: $displayName, email: $email, createdAt_expr: "request.time"})
+}
+
+query GetUser @auth(level: USER) {
+  user(key: {id_expr: "auth.uid"}) {
+    id
+    displayName
+    email
+    createdAt
+  }
+}
+
+query ListHospitals @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public") {
+  hospitals {
+    id
+    name
+    address
+    phoneNumber
+  }
+}
+
+mutation CreateShift($hospitalId: UUID!, $shiftTypeId: UUID!, $userId: UUID!, $date: Date!, $durationInMinutes: Int!, $startTime: Timestamp!, $endTime: Timestamp!, $notes: String) @auth(level: USER) {
+  shift_insert(data: {hospitalId: $hospitalId, shiftTypeId: $shiftTypeId, userId: $userId, date: $date, durationInMinutes: $durationInMinutes, startTime: $startTime, endTime: $endTime, notes: $notes})
+}

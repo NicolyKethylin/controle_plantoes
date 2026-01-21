@@ -11,7 +11,11 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "express": "^5.2.1"
+    "@dataconnect/admin-generated": "file:src/dataconnect-admin-generated",
+    "@dataconnect/generated": "file:src/dataconnect-generated",
+    "express": "^5.2.1",
+    "firebase": "^12.8.0",
+    "firebase-admin": "^13.6.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
