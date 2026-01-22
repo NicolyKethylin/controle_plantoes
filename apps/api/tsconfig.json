@@ -1,14 +1,12 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
-
-    "module": "commonjs",
-    "target": "esnext",
+     
+    "module": "NodeNext", 
+    "moduleResolution": "NodeNext",
     "types": ["node"],
     "allowSyntheticDefaultImports": true,
 
-
-    // Other Outputs    npx ts-node server.ts
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
@@ -25,5 +23,9 @@
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
+
+    //TYPEORM
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
   }
 }
